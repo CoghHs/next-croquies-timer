@@ -2,6 +2,9 @@
 
 import { useRef, useState } from "react";
 import Button from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ResetButton from "./ResetButton";
+import SaveButton from "./SaveButton";
 
 type RecordType = {
   id: number;
@@ -64,10 +67,10 @@ export default function Timer() {
         <h1>{formatTime(time)}</h1>
       </div>
       <div>
-        <Button text={running ? "STOP" : "RUNNING"} onClick={startStopwatch} />
+        <Button running={running} onClick={startStopwatch} />
         {/* <button onClick={startStopwatch}>{running ? "STOP" : "RUNNING"}</button> */}
-        <button onClick={resetStopwatch}>RESET</button>
-        <button onClick={recordLap}>LAP</button>
+        <ResetButton onClick={resetStopwatch} />
+        <SaveButton onClick={recordLap} />
       </div>
       <div>
         <ul>
