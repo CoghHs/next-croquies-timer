@@ -52,10 +52,10 @@ export default function Timer() {
   };
 
   const formatTime = (timeInMillis: number) => {
-    const hours = Math.floor(timeInMillis / 3600000);
+    // const hours = Math.floor(timeInMillis / 3600000);
     const minutes = Math.floor((timeInMillis % 3600000) / 60000);
     const seconds = Math.floor((timeInMillis % 60000) / 1000);
-    const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes}:${
+    const formattedTime = `${minutes < 10 ? "0" : ""}${minutes}:${
       seconds < 10 ? "0" : ""
     }${seconds}`;
     return formattedTime;
@@ -68,7 +68,6 @@ export default function Timer() {
       </div>
       <div>
         <Button running={running} onClick={startStopwatch} />
-        {/* <button onClick={startStopwatch}>{running ? "STOP" : "RUNNING"}</button> */}
         <ResetButton onClick={resetStopwatch} />
         <SaveButton onClick={recordLap} />
       </div>
